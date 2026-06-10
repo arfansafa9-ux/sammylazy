@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سایت فیلم</title>
+<style>
+body{
+    background:#111;
+    color:white;
+    font-family:Tahoma,sans-serif;
+    text-align:center;
+    margin:0;
+    padding:20px;
+}
+.title{
+    color:red;
+    font-size:48px;
+    font-weight:bold;
+    margin-top:20px;
+}
+.video-section{
+    margin:50px auto;
+}
+video{
+    width:80%;
+    max-width:800px;
+    border:3px solid red;
+    border-radius:10px;
+}
+.footer{
+    color:red;
+    font-size:36px;
+    font-weight:bold;
+    margin-top:40px;
+}
+</style>
+</head>
+<body>
+<div class="title">خوش آمدید</div>
+
+<div class="video-section">
+    <h2>آپلود فیلم</h2>
+    <input type="file" id="videoUpload" accept="video/*">
+    <br><br>
+    <video id="videoPlayer" controls></video>
+</div>
+
+<div class="footer">لذت ببرید</div>
+
+<script>
+document.getElementById('videoUpload').addEventListener('change', function(event){
+    const file = event.target.files[0];
+    if(file){
+        document.getElementById('videoPlayer').src = URL.createObjectURL(file);
+    }
+});
+</script>
+</body>
+</html>
